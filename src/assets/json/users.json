@@ -1,0 +1,32 @@
+[
+    {
+        "Nom": "Colley",
+        "Prenom": "Gérémy",
+        "Email": "geremycolley.pro@hotmail.fr",
+        "MP": "Alice2023"
+    },
+    {
+        "Nom": "Colley",
+        "Prenom": "Alice",
+        "Email": "alicecolley.pro@hotmail.fr",
+        "MP": "Alice2023"
+    },
+    {
+        "Nom": "Colley",
+        "Prenom": "Marc",
+        "Email": "marccolley.pro@hotmail.fr",
+        "MP": "Alice2023"
+    },
+    {
+        "Nom": "Colley",
+        "Prenom": "Jean-Marc",
+        "Email": "jean-marccolley.pro@hotmail.fr",
+        "MP": "Alice2023"
+    },
+    {
+        "Nom": "Hamon",
+        "Prenom": "Jocelyne",
+        "Email": "jocelynehamon.pro@hotmail.fr",
+        "MP": "Alice2023"
+    }
+]
