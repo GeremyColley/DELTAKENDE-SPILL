@@ -5,6 +5,7 @@ import './App.css'
 
 // Components
 import Header from './components/Header'
+import Line from './components/Line'
 
 // Pages
 import Home from './pages/Home'
@@ -14,17 +15,28 @@ import Signup from './pages/Signup'
 import Account from './pages/Account'
 import Login from './pages/Login'
 
-import projets from '../assets/json/projets.json'
-import users from '../assets/json/users.json'
+import projets from './assets/json/projets.json'
+
 
 function App() {
 
-  const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState();
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   //const [sortPrice, setSortPrice] = useState();
   //const [fetchRangeValues, setFetchRangeValues] = useState([0, 10000]);
-  //const [] = useState();
+
+  const tab = [];
+
+  for (let i = 0; i < projets.length; i++) {
+    if (projets[i].NomProjet.includes(search)) {
+      if (tab.length < 9) {
+        tab.push(<Line projets={projets[i]} key={i} />);
+      } else {
+        break;
+      }
+    }
+  }
 
 /*
   useEffect( () => {
@@ -37,38 +49,19 @@ function App() {
   }, [search]);
 */
 
-/*
-const test = users[0];
-const tab = [];
-
-for (let i = 0; i < emojis.length; i++) {
-  // Si l'émoji de ce tour contient, dans sa clef keywords, ce que j'ai écrit dans mon input (docn ce qu'il y a dans le state search) => alors, je crée un composant Line que je push dans tab
-  if (emojis[i].keywords.includes(search)) {
-    // Si tab contient moins de 20 éléments
-    if (tab.length < 20) {
-      // Je push dans tab un composant Line
-      tab.push(<Line emoji={emojis[i]} key={i} />);
-    } else {
-      break;
-    }
-  }
-}
-*/
-
   return (
     <div>
+     
       <Router>
         <Header 
           search={search}
           setSearch={setSearch}
         />
+       
         <Routes>
-          <Route path='/' element={<Home data={data} isLoading={isLoading} />}/>
-          <Route path='/Publish' element={<Publish setUser={setUser} />}/>
-          <Route path='/Login' element={<Login setUser={setUser}/>}/>
-          <Route path='/Projet' element={<Projet />}/>
-          <Route path='/Signup' element={<Signup />}/>
-          <Route path='/Account' element={<Account token={token}/>}/>
+          <Route path='/' element={<Home data={tab} isLoading={isLoading} />}/>
+          <Route path='/Login' element={<Login />}/>
+          
         </Routes>
       </Router>
     </div>
@@ -76,3 +69,23 @@ for (let i = 0; i < emojis.length; i++) {
 }
 
 export default App
+
+
+/*
+<Route path='/Publish' element={<Publish setUser={setUser} />}/>
+          <Route path='/Login' element={<Login setUser={setUser}/>}/>
+          <Route path='/Projet' element={<Projet />}/>
+          <Route path='/Signup' element={<Signup />}/>
+          <Route path='/Account' element={<Account token={token}/>}/> */
+
+
+          /*
+           for (let i = 0; i < projets.length; i++) {
+    if (projets[i].NomProjet.includes(search)) {
+      if (tab.length < 3) {
+        tab.push(<Line projets={projets[i]} key={i} />);
+      } else {
+        break;
+      }
+    }
+  }*/

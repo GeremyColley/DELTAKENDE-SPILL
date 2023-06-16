@@ -9,7 +9,7 @@ const Home = ({data, isLoading}) => {
         <div>
             <h1>CROWDFUNDING CAMPAIGNS</h1>
             <p>Les offres</p>
-
+            {data}
         </div>
 
     );
