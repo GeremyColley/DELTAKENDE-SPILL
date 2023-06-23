@@ -39,7 +39,7 @@ function App() {
       Cookies.remove("token");
     }
   };
-
+/*
   for (let i = 0; i < projets.length; i++) {
     if (projets[i].NomProjet.includes(search)) {
       if (tab.length < 10) {
@@ -49,24 +49,35 @@ function App() {
       }
     }
   }
-
-
-  /*
+*/
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].NomProjet.includes(search)) {
+      if (tab.length < 10) {
+        tab.push(<Line projets={data[i]} key={i} />);
+      } else {
+        break;
+      }
+    }
+  }
 
   useEffect( () => {
     const fetchData = async () => {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/projets?title=${search}`);
+      try {
+        console.log("prefixe url : " + import.meta.env.VITE_API_projet);
+        console.log("search : " + search);
+
+        const response = await axios.get(`${import.meta.env.VITE_API_projet}/projets?title=${search}`);
         setData(response.data);
         setIsLoading(false);
+      } catch (error) {
+        console.log(error.message);
+      }
     };
     fetchData();
   }, [search]);
 
-*/
-
   return (
-    <div>
-      
+    <div className='App'>
       <Router>
         <Header 
           search={search}
