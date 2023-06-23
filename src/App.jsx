@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes , Route } from 'react-router-dom'
+import Cookies from "js-cookie";
 import axios from 'axios'
 import './App.css'
 
@@ -19,14 +20,25 @@ import projets from './assets/json/projets.json'
 
 
 function App() {
-
+  const [token, setToken] = useState(Cookies.get("token") || null);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
+
   //const [sortPrice, setSortPrice] = useState();
   //const [fetchRangeValues, setFetchRangeValues] = useState([0, 10000]);
 
   const tab = [];
+
+  const setUser = (token) => {
+    if (token) {
+      setToken(token);
+      Cookies.set("token", token);
+    } else {
+      setToken(null);
+      Cookies.remove("token");
+    }
+  };
 
   for (let i = 0; i < projets.length; i++) {
     if (projets[i].NomProjet.includes(search)) {
@@ -38,7 +50,7 @@ function App() {
     }
   }
 
-/*
+
   useEffect( () => {
     const fetchData = async () => {
         const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/projets?title=${search}`);
@@ -47,21 +59,23 @@ function App() {
     };
     fetchData();
   }, [search]);
-*/
+
 
   return (
     <div>
-     
+      
       <Router>
         <Header 
           search={search}
           setSearch={setSearch}
+          token={token}
+          setUser={setUser}
         />
-       
         <Routes>
           <Route path='/' element={<Home data={tab} isLoading={isLoading} />}/>
-          <Route path='/Login' element={<Login />}/>
-          
+          <Route path='/Login' element={<Login setUser={setUser}/>}/>
+          <Route path="/signup" element={<Signup setUser={setUser} />} />
+          <Route path='/Publish' element={<Publish setUser={token} />}/>
         </Routes>
       </Router>
     </div>
