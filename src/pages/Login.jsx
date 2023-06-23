@@ -27,7 +27,7 @@ const Login = ({ setUser }) => {
       if (response.data.token) {
         setUser(response.data.token);
         setIsLoading(false);
-        navigate(fromPublish ? "/private" : "/private");
+        navigate(fromPublish ? "/" : "/publish");
       } else {
         alert("Une erreur est survenue, veuillez réssayer.");
       }

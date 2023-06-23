@@ -1,6 +1,7 @@
+import React from "react";
 import { useNavigate, Link} from "react-router-dom";
 
-const Header = ({search,setSearch}) => {
+const Header = ({search,setSearch, token, setUser }) => {
 
     const navigate = useNavigate();
 
@@ -10,17 +11,43 @@ const Header = ({search,setSearch}) => {
                 <nav>
                     <Link to="/">Home</Link>
                     <Link to="/Publish">Lance ton projet</Link>
-                    
                 </nav>
                 <h1>detakende-spill</h1>
-                <button onClick={()=> {navigate("/Login")}}>Connexion</button>
+                {token ? (
+                    <button
+                        onClick={() => {
+                        setUser(null);
+                        }}
+                        className="button-logout"
+                    >
+                        Se déconnecter
+                    </button>
+                ) : (
+                    <div>
+                        <button
+                        onClick={() => {
+                            navigate("/signup");
+                        }}
+                        className="header-button button-login-signup button-signup"
+                        >
+                        S'inscrire
+                        </button>
+                        <button
+                        onClick={() => {
+                            navigate("/login");
+                        }}
+                        className="header-button button-login-signup"
+                        >
+                        Se connecter
+                        </button>
+                    </div>
+                )}
             </div>
             <div>
-            <input
-                onChange={(event) => setSearch(event.target.value)}
-                placeholder="Projets"
-            />
-               
+                <input
+                    onChange={(event) => setSearch(event.target.value)}
+                    placeholder="Projets"
+                />
             </div>
         </div>
     );

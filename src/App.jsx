@@ -11,10 +11,10 @@ import Line from './components/Line'
 // Pages
 import Home from './pages/Home'
 import Publish from './pages/Publish'
-import Projet from './pages/Projet'
 import Signup from './pages/Signup'
-import Account from './pages/Account'
 import Login from './pages/Login'
+import Account from './pages/Account'
+import Projet from './pages/Projet'
 
 import projets from './assets/json/projets.json'
 
@@ -22,7 +22,7 @@ import projets from './assets/json/projets.json'
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || null);
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState("");
 
   //const [sortPrice, setSortPrice] = useState();
@@ -42,7 +42,7 @@ function App() {
 
   for (let i = 0; i < projets.length; i++) {
     if (projets[i].NomProjet.includes(search)) {
-      if (tab.length < 9) {
+      if (tab.length < 10) {
         tab.push(<Line projets={projets[i]} key={i} />);
       } else {
         break;
@@ -50,6 +50,8 @@ function App() {
     }
   }
 
+
+  /*
 
   useEffect( () => {
     const fetchData = async () => {
@@ -60,6 +62,7 @@ function App() {
     fetchData();
   }, [search]);
 
+*/
 
   return (
     <div>
@@ -73,9 +76,9 @@ function App() {
         />
         <Routes>
           <Route path='/' element={<Home data={tab} isLoading={isLoading} />}/>
-          <Route path='/Login' element={<Login setUser={setUser}/>}/>
+          <Route path='/login' element={<Login setUser={setUser}/>}/>
           <Route path="/signup" element={<Signup setUser={setUser} />} />
-          <Route path='/Publish' element={<Publish setUser={token} />}/>
+          <Route path='/publish' element={<Publish token={token} />}/>
         </Routes>
       </Router>
     </div>

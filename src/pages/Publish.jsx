@@ -1,15 +1,16 @@
 
 
-const Publish = () => {
-
-    return (
+const Publish = ({token}) => {
+    console.log("token : " + token)
+    return token ? (
         <div>
-            <h1>Publish</h1>
             <p>Publie ton projet</p>
         </div>
-
+    ) : (
+        <div>
+            <p>Accés interdit</p>
+        </div>
     );
-
 }
 
 export default Publish;

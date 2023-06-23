@@ -1,74 +1,91 @@
 [
     {
-        "id":"12345",
+        
         "NomProjet":"forbidden Lands",
-        "type":"JDR", 
+        "Type":"JDR", 
         "NbrSouscripteurs":"234",
         "MontantDuProjet":"10000",
-        "MontantRecolté":"25000"
+        "MontantRecolté":"25000",
+        "Close":false
     },
     {
-        "id":"2233",
+        
         "NomProjet":"alien",
-        "type":"JDR", 
+        "Type":"JDR", 
         "NbrSouscripteurs":"234",
         "MontantDuProjet":"10000",
-        "MontantRecolté":"25000"
+        "MontantRecolté":"25000",
+        "Close":false
     },
     {
-        "id":"345",
+       
         "NomProjet":"yggdrasil",
-        "type":"JDR", 
+        "Type":"JDR", 
         "NbrSouscripteurs":"234",
         "MontantDuProjet":"10000",
-        "MontantRecolté":"25000"
+        "MontantRecolté":"25000",
+        "Close":false
     },
     {
-        "id":"325",
+        
         "NomProjet":"dunjeon & dragon",
-        "type":"JDR", 
+        "Type":"JDR", 
         "NbrSouscripteurs":"234",
         "MontantDuProjet":"10000",
-        "MontantRecolté":"25000"
+        "MontantRecolté":"25000",
+        "Close":false
     },
     {
-        "id":"1297",
+       
         "NomProjet":"symbaroum",
-        "type":"JDR", 
+        "Type":"JDR", 
         "NbrSouscripteurs":"234",
         "MontantDuProjet":"10000",
         "MontantRecolté":"25000"
     },
     {
-        "id":"56",
+       
         "NomProjet":"blade runner",
-        "type":"JDR", 
+        "Type":"JDR", 
         "NbrSouscripteurs":"234",
         "MontantDuProjet":"10000",
-        "MontantRecolté":"25000"
+        "MontantRecolté":"25000",
+        "Close":false
     },
     {
-        "id":"87",
+       
         "NomProjet":"dune",
-        "type":"JEUX", 
+        "Type":"JEUX", 
         "NbrSouscripteurs":"234",
         "MontantDuProjet":"10000",
-        "MontantRecolté":"25000"
+        "MontantRecolté":"25000",
+        "Close":false
     },
     {
-        "id":"326",
+        
         "NomProjet":"echec",
-        "type":"JEUX", 
+        "Type":"JEUX", 
         "NbrSouscripteurs":"234",
         "MontantDuProjet":"10000",
-        "MontantRecolté":"25000"
+        "MontantRecolté":"25000",
+        "Close":false
     },
     {
-        "id":"952",
+        
         "NomProjet":"dark souls",
-        "type":"JEUX", 
+        "Type":"JEUX", 
         "NbrSouscripteurs":"234",
         "MontantDuProjet":"10000",
-        "MontantRecolté":"25000"
+        "MontantRecolté":"25000",
+        "Close":false
+    },
+    {
+        
+        "NomProjet":"Lauresluk",
+        "Type":"LDVELH", 
+        "NbrSouscripteurs":"234",
+        "MontantDuProjet":"10000",
+        "MontantRecolté":"25000",
+        "Close":false
     }
 ]
